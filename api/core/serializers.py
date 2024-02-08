@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from core.models import Airline, Airport, Runway, Flights
+from core.models import Airline
 
 class AirlineSerializer(serializers.ModelSerializer): 
     class Meta: 
         model = Airline
-        fields = ['airport', 'airline_code']
-        read_only_fields = ['id']
+        fields = ['name', 'airline_code']

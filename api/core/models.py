@@ -44,7 +44,7 @@ class Flights (models.Model):
     origin=models.ForeignKey(
         Airport,
         on_delete=models.PROTECT,
-        related_name='flight_origin'
+        related_name='flight'
     )
     destination = models.ForeignKey(
         Airport,
