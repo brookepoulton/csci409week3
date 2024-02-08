@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+
 # Create your models here.
 class Airport(models.Model): 
     name = models.CharField(max_length=255)
@@ -44,7 +46,7 @@ class Flight (models.Model):
     origin=models.ForeignKey(
         Airport,
         on_delete=models.PROTECT,
-        related_name='flight'
+        related_name='flight_origin'
     )
     destination = models.ForeignKey(
         Airport,
@@ -57,8 +59,8 @@ class Flight (models.Model):
         related_name = 'airline'
     )
     flight_number = models.IntegerField()
-    departure = models.DateTimeField()
-    arrival = models.DateTimeField()
+    departure = models.DateTimeField(default=timezone.now)
+    arrival = models.DateTimeField(default=timezone.now)
     aircraft_type = models.CharField(max_length=10)
 
     def __str__(self):
