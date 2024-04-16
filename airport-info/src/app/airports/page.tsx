@@ -37,4 +37,7 @@ function AirportsPage() {
         </tbody>
       </table>
     </div>
-    )};
+  );
+}
+
+export default AirportsPage;
